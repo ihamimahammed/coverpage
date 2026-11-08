@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khulna University Assignment Cover Generator</title>
+<style>
+  :root { --blue:#266CA9; --dark:#1e5585; --light:#4a90e2; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Times New Roman", serif;
+    margin: 0; padding: 0;
+    background: linear-gradient(-45deg, #266CA9, #1e5585, #4a90e2, #266CA9);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    text-align: center; color: #333;
+    min-height: 100vh; overflow-x: hidden;
+  }
+  body.loading { overflow: hidden; }
+
+  /* ---------- LOADING SCREEN ---------- */
+  #loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: radial-gradient(circle at 50% 40%, #2b78b8 0%, #12395c 60%, #0a2239 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #fff; transition: transform 0.9s cubic-bezier(.77,0,.18,1), opacity 0.9s ease;
+  }
+  #loader.hide { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+  .ring-wrap { position: relative; width: 150px; height: 150px; margin-bottom: 28px; }
+  .ring {
+    position: absolute; inset: 0; border-radius: 50%;
+    border: 4px solid transparent; border-top-color: #fff; border-right-color: rgba(255,255,255,.4);
+    animation: spin 1.1s linear infinite;
+  }
+  .ring.r2 { inset: 12px; border-top-color: #8fc4ff; border-right-color: transparent; border-left-color: rgba(143,196,255,.5); animation-duration: 1.7s; animation-direction: reverse; }
+  .ring.r3 { inset: 24px; border-top-color: #ffd66b; border-right-color: transparent; animation-duration: 2.4s; }
+  .ring-center {
+    position: absolute; inset: 36px; border-radius: 50%; background: rgba(255,255,255,.95);
